@@ -80,7 +80,8 @@ class Task(BoxLayout):
                     btn = Not(text=self.ids.tf_title.text, size_hint=(1,None), height=dp(50))
                     self.ids.box_notes.add_widget(btn)
                     self.ids.tf_title.text=''
-                    self.ids.ti_body.text=''    
+                    self.ids.ti_body.text=''
+                    self.ids.lbl_info.text = ''    
             except:
                 ic('Error')
     
@@ -95,7 +96,9 @@ class Task(BoxLayout):
                 self.ids.tf_title.text=''
                 self.ids.ti_body.text=''
                 self.on_load()
-                
+        else:
+            self.ids.lbl_info.text = ''
+                    
         
     def update_note(self):
         pass
