@@ -1,0 +1,130 @@
+<Task>:
+    name: 'task'
+    MDBoxLayout:
+        id: frame_main_task
+        orientation: 'vertical'
+        MDLabel:
+            id: lbl_info
+            text: 'Hoşgeldiniz'
+            size_hint_y: 0.1
+            font_size: dp(20)
+            halign: 'center'
+            color: 'white'
+        MDBoxLayout:
+            size_hint_y: 0.6
+            ScrollView:
+                do_scroll: [False, True]
+                size_hint: 1,1
+                MDBoxLayout:
+                    id: box_notes
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: self.minimum_height
+        MDBoxLayout:
+            id: box_editor
+            orientation: 'vertical'
+            size_hint_y: .3
+            MDBoxLayout:
+                orientation: 'vertical'
+                size_hint_y: .2
+                MDBoxLayout:
+                    size_hint_y: .05
+                    MDTextField:
+                        id: tf_title
+                        theme_bg_color: "Custom"
+                        fill_color_normal: 0, 1, 0, .8
+                        fill_color_focus: 0, 1, 0, .2
+                        multiline: False
+                        font_style: 'Title'
+                        write_tab: False
+                        MDTextFieldLeadingIcon:
+                            icon: "file-document-edit-outline"
+                        MDTextFieldHintText:
+                            text: 'Not Başlık' 
+                TextInput:
+                    id: ti_body
+                    hint_text:'Not İçeriği'
+                    size_hint_y: 0.15  
+                    size_hint_x: 1
+        MDBoxLayout:
+            size_hint_y: .1
+            padding: dp(2)
+            md_bg_color: app.theme_cls.surfaceColor
+            ToggleButton:
+                group: 'A'
+                id: btn_readnote
+                text: 'OKU'
+                on_press: 
+                    print('Reading..')
+                    root.read_note()
+            ToggleButton:
+                group: 'A'
+                id: btn_addnote
+                text: 'EKLE'
+                on_press: 
+                    print('Adding..')
+                    root.add_note()
+            ToggleButton:
+                group: 'A'
+                id: btn_updatenote
+                text: 'GÜNCELLE'
+                on_press: 
+                    print('Updating..')
+                    root.update_note()
+            ToggleButton:
+                group: 'A'
+                id: btn_deletenote
+                text: 'SİL'
+                color: 226/255, 0 , 48/255, 1
+                on_press: 
+                    print('Deleting..')
+                    root.delete_note()
+                
+<Not>:
+    on_press: root.check()              
+                
+            # MDChip:
+            #     id: btn_addnote
+            #     type: 'filter'
+            #     md_bg_color:"#303A29"
+            #     on_active:
+            #         root.add_note()
+            #         print('Not Eklendi')
+            #     MDChipText:
+            #         text: 'EKLE'
+
+
+            # MDSegmentedButton:
+            #     size_hint_x: 1
+                
+
+            #     MDSegmentedButtonItem:
+            #         id: btn_readnote
+            #         on_active: print('Not Okuma')
+
+            #         MDSegmentButtonLabel:
+            #             text: "OKU"
+
+            #     MDSegmentedButtonItem:
+            #         id: btn_addnote
+            #         on_active: 
+            #             root.add_note()
+            #             print('Not Eklendi')
+                        
+
+            #         MDSegmentButtonLabel:
+            #             text: "EKLE"
+            #             # active: True
+
+            #     MDSegmentedButtonItem:
+            #         on_active: print('Not Silindi')
+
+            #         MDSegmentButtonLabel:
+            #             text: "SİL"
+
+            #     MDSegmentedButtonItem:
+            #         on_active: print('Not Güncellendi')
+
+            #         MDSegmentButtonLabel:
+            #             text: "GÜNCELLE"       
+                        

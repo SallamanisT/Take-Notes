@@ -1,0 +1,29 @@
+<Mask>:
+    name: 'mask'
+    MDBoxLayout:
+        orientation: 'vertical'
+        md_bg_color: app.theme_cls.primaryColor
+        padding: dp(16)
+        spacing: dp(16)   
+        MDBoxLayout:
+            orientation: 'vertical'
+            md_bg_color: app.theme_cls.surfaceColor
+            size_hint_x: .95
+            pos_hint: {'center_x': 0.5,'center_y': 0.5}
+            padding: dp(16), dp(30)
+            MDLabel:
+                text: "Notlar"
+                font_size: dp(25)
+                halign: "center"
+            MDButton:
+                style: "elevated"
+                on_press: app.root.ids.scrn_mngr.current = 'scrn_task'
+                
+                pos_hint: {'center_x': 0.5,'center_y': 0.5, 'y': 1}
+                MDButtonIcon:
+                    icon: 'plus'
+                MDButtonText:
+                    text: 'Ticari'
+                
+
+

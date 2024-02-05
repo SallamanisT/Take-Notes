@@ -1,0 +1,24 @@
+#:kivy 2.3.0
+#: import Mask views.mask.Mask
+#: import Task views.task.Task
+
+<MainWindow>:
+    id: mainwindow
+    name: 'mainwindow'
+    orientation: 'vertical'
+
+
+    ScreenManager:
+        id: scrn_mngr
+        Screen:
+            name: 'scrn_mask'
+            on_pre_enter: print('hi')
+            on_pre_leave: print('bye')
+            Mask:
+                id: mask
+        Screen:
+            name: 'scrn_task'
+            on_pre_enter: root.ids.task.on_load()
+            on_pre_leave: print('bye')
+            Task:
+                id: task
