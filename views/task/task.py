@@ -69,8 +69,8 @@ class Task(BoxLayout):
     def render(self, _):
         pass
     def on_load(self):
-        self.ids.tf_title.readonly = False
-        self.ids.ti_body.readonly = False
+        self.ids.tf_title.readonly = True
+        self.ids.ti_body.readonly = True
         try:
             json_data = open('storage/notes.json')
             data = json.load(json_data)
