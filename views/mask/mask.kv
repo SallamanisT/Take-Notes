@@ -17,13 +17,15 @@
                 halign: "center"
             MDButton:
                 style: "elevated"
-                on_press: app.root.ids.scrn_mngr.current = 'scrn_task'
+                on_press: 
+                    app.root.ids.scrn_mngr.transition.direction = 'left' 
+                    app.root.ids.scrn_mngr.current = 'scrn_task'
                 
                 pos_hint: {'center_x': 0.5,'center_y': 0.5, 'y': 1}
                 MDButtonIcon:
                     icon: 'plus'
                 MDButtonText:
-                    text: 'Ticari'
+                    text: 'Notlar'
                 
 
 

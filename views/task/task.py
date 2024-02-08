@@ -69,6 +69,7 @@ class Task(BoxLayout):
     def render(self, _):
         pass
     def on_load(self):
+        self.ids.box_notes.clear_widgets()
         self.ids.tf_title.readonly = True
         self.ids.ti_body.readonly = True
         try:
@@ -93,9 +94,11 @@ class Task(BoxLayout):
             self.ids.lbl_info.text = "Not Ekleme Modu"
         else:
             try:
-                if self.ids.tf_title.text in self.store:
+                if self.ids.tf_title.text in self.store or len(self.ids.tf_title.text) <1 :
                     self.ids.lbl_info.color = 'red'
                     self.ids.lbl_info.text = "Başlık Eşsiz Olmalı"
+                    self.ids.tf_title.readonly = True
+                    self.ids.ti_body.readonly = True
                     ic('başlık')
                 else:
                     self.store.put(self.ids.tf_title.text, value1=self.ids.ti_body.text) 
@@ -103,6 +106,8 @@ class Task(BoxLayout):
                     self.ids.lbl_info.text = "Not Eklendi"
                     btn = Note(text=self.ids.tf_title.text, size_hint=(1,None), height=dp(50))
                     self.ids.box_notes.add_widget(btn)
+                    self.ids.tf_title.readonly = True
+                    self.ids.ti_body.readonly = True
                     self.ids.tf_title.text=''
                     self.ids.ti_body.text=''
                     self.ids.lbl_info.text = ''    

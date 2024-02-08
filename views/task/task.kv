@@ -3,13 +3,29 @@
     MDBoxLayout:
         id: frame_main_task
         orientation: 'vertical'
-        MDLabel:
-            id: lbl_info
-            text: 'Hoşgeldiniz'
+        MDBoxLayout:
             size_hint_y: 0.1
-            font_size: dp(20)
-            halign: 'center'
-            color: 'white'
+            
+            MDIconButton:
+                icon: 'chevron-left'
+                size_hint_x: .1
+                pos_hint: {'y': 0.3}
+                on_release:
+                    app.root.ids.scrn_mngr.transition.direction = 'right' 
+                    app.root.ids.scrn_mngr.current = 'scrn_mask'
+                
+            MDLabel:
+                id: lbl_info
+                text: 'Hoşgeldiniz'
+                font_size: dp(20)
+                halign: 'center'
+                color: 'white'
+                size_hint_x: .8
+                
+
+            Widget:
+                size_hint_x: 0.1
+                
         MDBoxLayout:
             size_hint_y: 0.6
             ScrollView:
